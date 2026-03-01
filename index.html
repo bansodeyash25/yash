@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Gaming Cafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif}
+    body{background:#050510;color:#fff}
+
+    /* Neon Glow */
+    .neon{color:#00fff0;text-shadow:0 0 10px #00fff0,0 0 20px #00fff0}
+
+    header{
+      min-height:100vh;
+      background:radial-gradient(circle at top,#111 0%,#000 60%),url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1500&q=80') center/cover;
+      display:flex;align-items:center;justify-content:center;text-align:center;padding:20px
+    }
+    header h1{font-size:3.5rem}
+    header p{margin:20px 0;font-size:1.2rem;color:#ccc}
+
+    .btn{
+      padding:14px 36px;
+      background:linear-gradient(90deg,#00fff0,#8a2be2);
+      color:#000;text-decoration:none;font-weight:800;border-radius:40px;
+      box-shadow:0 0 20px #00fff0;display:inline-block
+    }
+
+    section{padding:70px 8%}
+    .box{background:#0e0e1a;margin-bottom:30px;border-radius:20px;padding:40px}
+    h2{text-align:center;margin-bottom:40px}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .card{background:#151528;padding:30px;border-radius:18px;text-align:center;box-shadow:0 0 15px #111}
+
+    .pricing-table{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .price{background:#151528;padding:30px;border-radius:18px;text-align:center;box-shadow:0 0 20px #00fff022}
+    .price h3{color:#00fff0}
+
+    /* Booking Form */
+    form{max-width:500px;margin:0 auto;display:grid;gap:15px}
+    input,select,button{
+      padding:14px;border-radius:10px;border:none;font-size:1rem
+    }
+    input,select{background:#0b0b16;color:#fff}
+    button{background:linear-gradient(90deg,#00fff0,#ff00ff);font-weight:800;cursor:pointer;box-shadow:0 0 15px #00fff0}
+
+    footer{text-align:center;padding:20px;background:#000;color:#777}
+
+    /* Mobile */
+    @media(max-width:600px){
+      header h1{font-size:2.4rem}
+      section{padding:50px 6%}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1 class="neon">YASH GAMING CAFE</h1>
+      <p>Dark Neon RGB Gaming Cafe</p>
+      <a href="#booking" class="btn">BOOK NOW</a>
+    </div>
+  </header>
+
+  <section class="box">
+    <h2 class="neon">Our Games</h2>
+    <div class="cards">
+      <div class="card">🎮 <h3>PC Gaming</h3><p>Valorant, GTA V, CS2</p></div>
+      <div class="card">🕹️ <h3>Console</h3><p>PlayStation 5</p></div>
+      <div class="card">🏎️ <h3>Racing Zone</h3><p>Steering + VR</p></div>
+      <div class="card">🏆 <h3>Tournaments</h3><p>Weekly Events</p></div>
+    </div>
+  </section>
+
+  <section class="box">
+    <h2 class="neon">Gaming Prices</h2>
+    <div class="pricing-table">
+      <div class="price"><h3>₹100 / Hour</h3><p>PC Gaming</p></div>
+      <div class="price"><h3>₹150 / Hour</h3><p>Console Gaming</p></div>
+      <div class="price"><h3>₹500</h3><p>Unlimited Day Pass</p></div>
+    </div>
+  </section>
+
+  <section class="box" id="booking">
+    <h2 class="neon">Online Booking & Payment</h2>
+    <form onsubmit="return handlePayment()">
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      <select id="game" required>
+        <option value="">Select Gaming Type</option>
+        <option value="100">PC Gaming (₹100/hr)</option>
+        <option value="150">Console Gaming (₹150/hr)</option>
+        <option value="500">Unlimited Day Pass (₹500)</option>
+      </select>
+      <input type="date" required>
+      <input type="time" required>
+
+      <select id="payment" required>
+        <option value="">Select Payment Method</option>
+        <option>UPI</option>
+        <option>Google Pay</option>
+        <option>PhonePe</option>
+        <option>Paytm</option>
+        <option>Cash at Cafe</option>
+      </select>
+
+      <div style="text-align:center;color:#00fff0;font-size:1.1rem">Total Amount: ₹<span id="amount">0</span></div>
+
+      <button type="submit">PAY & CONFIRM</button>
+    </form>
+
+    <div style="text-align:center;margin-top:25px;color:#aaa">
+      🔒 Secure Payment | UPI Accepted
+    </div>
+  </section>
+
+  <script>
+    const game = document.getElementById('game');
+    const amount = document.getElementById('amount');
+
+    game.addEventListener('change', () => {
+      amount.textContent = game.value || 0;
+    });
+
+    function handlePayment(){
+      const name = document.querySelector('input[placeholder="Your Name"]').value;
+      const mobile = document.querySelector('input[placeholder="Mobile Number"]').value;
+      const gameText = document.getElementById('game').selectedOptions[0].text;
+      const amt = document.getElementById('amount').textContent;
+      const pay = document.getElementById('payment').value;
+
+      const msg = `🎮 *YASH GAMING CAFE BOOKING* %0AName: ${name}%0AMobile: ${mobile}%0AGame: ${gameText}%0AAmount: ₹${amt}%0APayment: ${pay}`;
+      const whatsappURL = `https://wa.me/919820059177?text=${msg}`;
+
+      window.open(whatsappURL, '_blank');
+      return false;
+    }
+  </script>
+
+  <footer>
+    <p>Yash Gaming Cafe | Dark Neon RGB Theme</p>
+  </footer>
+
+</body>
+</html>

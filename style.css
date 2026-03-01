@@ -1,0 +1,157 @@
+/* ===== RESET & FONT ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron', sans-serif;
+}
+
+body{
+  background:#050510;
+  color:#ffffff;
+}
+
+/* ===== NEON TEXT ===== */
+.neon{
+  color:#00fff0;
+  text-shadow:
+    0 0 10px #00fff0,
+    0 0 20px #00fff0,
+    0 0 40px #00fff0;
+}
+
+/* ===== HEADER / HERO ===== */
+header{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top,#111 0%,#000 60%),
+    url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1500&q=80')
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+header h1{
+  font-size:3.5rem;
+}
+
+header p{
+  margin:20px 0;
+  font-size:1.2rem;
+  color:#cccccc;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  padding:14px 36px;
+  background:linear-gradient(90deg,#00fff0,#8a2be2);
+  color:#000;
+  text-decoration:none;
+  font-weight:800;
+  border-radius:40px;
+  box-shadow:0 0 20px #00fff0;
+  display:inline-block;
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:70px 8%;
+}
+
+.box{
+  background:#0e0e1a;
+  margin-bottom:30px;
+  border-radius:20px;
+  padding:40px;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+/* ===== GAME CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#151528;
+  padding:30px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 0 15px #000;
+}
+
+/* ===== PRICING ===== */
+.pricing-table{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.price{
+  background:#151528;
+  padding:30px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,255,240,0.15);
+}
+
+.price h3{
+  color:#00fff0;
+}
+
+/* ===== BOOKING FORM ===== */
+form{
+  max-width:500px;
+  margin:0 auto;
+  display:grid;
+  gap:15px;
+}
+
+input,
+select,
+button{
+  padding:14px;
+  border-radius:10px;
+  border:none;
+  font-size:1rem;
+}
+
+input,
+select{
+  background:#0b0b16;
+  color:#ffffff;
+}
+
+button{
+  background:linear-gradient(90deg,#00fff0,#ff00ff);
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 0 15px #00fff0;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000000;
+  color:#777777;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:600px){
+  header h1{
+    font-size:2.4rem;
+  }
+
+  section{
+    padding:50px 6%;
+  }
+}
